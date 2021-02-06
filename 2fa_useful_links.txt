@@ -3,3 +3,5 @@ Useful Links for 2FA CS4279 Project
 https://github.com/yazid/iOS-TOTP/tree/master/Classes
 
 https://developers.sinch.com/v1.0.1/docs/number-verification-build-your-own-authenticator-app-with-sinch-and-otp-sharp-part-4
+
+https://docs.google.com/presentation/d/169VJnL7RjjWXy2k7e8ekgepkTJtnHSKtBOOTzmW5Wvs/edit?usp=sharing
