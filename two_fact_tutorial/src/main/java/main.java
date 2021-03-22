@@ -1,4 +1,5 @@
 
+import auth.Utils;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
@@ -13,6 +14,8 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.security.SecureRandom;
+
+
 
 public class main {
     public static void main(String args[]) {
@@ -31,7 +34,7 @@ public class main {
             lastCode = code;
             try {
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {}
+            } catch (InterruptedException e) {break;}
         }
 
         //test
