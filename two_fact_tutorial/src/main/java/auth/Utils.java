@@ -1,3 +1,6 @@
+// Methods for Utils class taken from
+// https://github.com/IhorSokolyk/google-2fa/blob/master/src/main/java/com/example/googleauth/Utils.java
+
 package auth;
 
 import com.google.zxing.BarcodeFormat;
