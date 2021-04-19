@@ -20,29 +20,28 @@ import java.util.Scanner;
 public class main {
     public static void main(String args[]) {
 
+        Scanner sc = new Scanner(System.in);
+
         // QDWSM3OYBPGTEVSPB5FKVDM3CSNCWHVK --> static secret key used for testing
 
-        // Generate secretKey.
-        String secretKey = Utils.generateSecretKey();
+        // Get secretKey from user.
+        System.out.println("Enter secret key, or 'stop' to quit.");
+        String secretKey = sc.nextLine();
+        if (secretKey.equalsIgnoreCase("stop")) {
+            return;
+        }
 
-        System.out.println("Secret key = " + secretKey + "\n Enter your TOTP, or 'stop' to quit.");
-
-        Scanner sc = new Scanner(System.in);
-        String totp = null;
+        String lastCode = null;
 
         while (true) {
+            // Generate code based on secret encryption key.
             String code = Utils.getTOTPCode(secretKey);
-            totp = sc.nextLine();
-            if (totp.equals(code)) {
-                System.out.println("Authentication Success");
+            // If code has updated, print new code.
+            if (!code.equals(lastCode)) {
+                System.out.println(code);
             }
-            else if (totp.equalsIgnoreCase("Stop")) {
-                System.out.println("Stopping authenticator...");
-                break;
-            }
-            else {
-                System.out.println("Authentication Failure");
-            }
+            // Update code
+            lastCode = code;
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {break;}
