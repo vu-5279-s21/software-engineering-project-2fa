@@ -1,9 +1,12 @@
 import auth.Utils;
+import com.google.zxing.WriterException;
+
+import java.io.IOException;
 import java.util.Scanner;
 
 
 public class main {
-    public static void main(String args[]) {
+    public static void main(String args[]) throws IOException, WriterException {
 
         // Static secret key used for testing.
         // QDWSM3OYBPGTEVSPB5FKVDM3CSNCWHVK
@@ -13,6 +16,12 @@ public class main {
 
         // Display secretKey for user to input into authenticator app.
         System.out.println("Secret key = " + secretKey + "\n Enter your TOTP, or 'stop' to quit.");
+
+
+        String email = "test@gmail.com";
+        String companyName = "Test Company";
+        String barCodeUrl = Utils.getGoogleAuthenticatorBarCode(secretKey, email, companyName);
+        Utils.createQRCode(barCodeUrl, "QRCode.png", 400, 400);
 
         Scanner sc = new Scanner(System.in);
         String totp = null;
@@ -38,7 +47,6 @@ public class main {
         }
 
     }
-
 
 }
 
